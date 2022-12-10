@@ -1,9 +1,8 @@
-<br>
-linux下
-sudo apt install iverilog 
-sudo apt install gtkwave
+linux下<br>
+sudo apt install iverilog<br>
+sudo apt install gtkwave<br>
 
-window下使用powershell
-choco install iverilog
-choco install gtkwave
-</br>
+window下使用powershell<br>
+choco install iverilog<br>
+choco install gtkwave<br>
+
