@@ -8,6 +8,6 @@ choco install gtkwave<br>
 
 
 
-iverilog -o xor_wav xorGate.v xorGate_tb.v
-vvp xor_wav
-gtkwave test_xor.vcd
+iverilog -o xor_wav xorGate.v xorGate_tb.v<br>
+vvp xor_wav<br>
+gtkwave test_xor.vcd<br>
