@@ -1,0 +1,83 @@
+$date
+	Mon Dec 12 23:10:39 2022
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module one_adder_tb $end
+$var wire 1 ! s $end
+$var wire 1 " c_out $end
+$var reg 1 # a $end
+$var reg 1 $ b $end
+$var reg 1 % c_in $end
+$scope module test $end
+$var wire 1 # a $end
+$var wire 1 $ b $end
+$var wire 1 % c_in $end
+$var wire 1 " c_out $end
+$var wire 1 & d $end
+$var wire 1 ' e $end
+$var wire 1 ( f $end
+$var wire 1 ! sum $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+x(
+x'
+x&
+x%
+x$
+x#
+x"
+x!
+$end
+#2
+0!
+0"
+0&
+0'
+0(
+0$
+0#
+0%
+#4
+1!
+1&
+1#
+#6
+1$
+0#
+#8
+0!
+1"
+0&
+1'
+1#
+#10
+0"
+0'
+1!
+0$
+0#
+1%
+#12
+1"
+0!
+1(
+1&
+1#
+#14
+1$
+0#
+#16
+1!
+0(
+0&
+1'
+1#
+#36
