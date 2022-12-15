@@ -42,6 +42,18 @@ begin
     #10 clk_pseudo_random = 1;
     #10 clk_pseudo_random = 0;
 
+    #10 clk_pseudo_random = 1;
+    #10 clk_pseudo_random = 0;
+
+    #10 clk_pseudo_random = 1;
+    #10 clk_pseudo_random = 0;
+
+    #10 clk_pseudo_random = 1;
+    #10 clk_pseudo_random = 0;
+
+    #10 clk_pseudo_random = 1;
+    #10 clk_pseudo_random = 0;
+
     #10 reset_pseudo_random = 1;
     #10 reset_pseudo_random = 0;
 
@@ -51,8 +63,12 @@ begin
 end
 
 
-always@(clk_pseudo_random or reset_pseudo_random) begin
-    $monitor("clk_pseudo_random = %b   out_pseudo_random = %b   reset_pseudo_random = %b", clk_pseudo_random, out_pseudo_random, reset_pseudo_random);   
+always@(posedge clk_pseudo_random) begin
+    $display("<posedge>  clk_pseudo_random = %b   out_pseudo_random = %b   reset_pseudo_random = %b", clk_pseudo_random, out_pseudo_random, reset_pseudo_random);   
+end
+
+always@(negedge reset_pseudo_random) begin
+    $display("<reset>  clk_pseudo_random = %b   out_pseudo_random = %b   reset_pseudo_random = %b", clk_pseudo_random, out_pseudo_random, reset_pseudo_random);   
 end
 
 endmodule
