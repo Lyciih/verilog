@@ -39,7 +39,7 @@ xor         (c1, Q[2], Q[0]);
 endmodule
 
 
-/*
+
 module main;
 
 reg f_mux,a_mux,b_mux;
@@ -54,6 +54,7 @@ reg clk_flip_flop, a_flip_flop, reset_flip_flop;
 wire out_flip_flop;
 flip_flop test_flip_flop(out_flip_flop, a_flip_flop, clk_flip_flop, reset_flip_flop);
 
+
 reg clk_pseudo_random, reset_pseudo_random;
 wire [0:2] out_pseudo_random;
 pseudo_random test_pseudo_random(out_pseudo_random, clk_pseudo_random, reset_pseudo_random);
@@ -63,7 +64,7 @@ initial
 begin
     $dumpfile("test_pseudo_random.vcd");
     $dumpvars(0,main);
-    /*
+    
     $display("\ntest mux\n");
     f_mux = 0;
     a_mux = 0;
@@ -88,10 +89,9 @@ begin
     #10 f_latch = 1;
     #10 f_latch = 0;
     #10 reset_latch = 1;
-    $display("a_latch = %b   f_latch = %b   out_latch = %b   out_latch_n = %b   reset_latch = %b", a_latch, f_latch, out_latch, out_latch_n, reset_latch);
 
 
-    $display("\ntest flip_flop\n");
+    #10 $display("\ntest flip_flop\n");
     clk_flip_flop = 0;
     a_flip_flop = 0;
     reset_flip_flop = 0;
@@ -111,6 +111,7 @@ begin
     #10 clk_flip_flop = 0;
 
     #10 reset_flip_flop = 1;
+    
 
     $display("\ntest pseudo_random\n");
     
@@ -144,8 +145,21 @@ begin
     #10 clk_pseudo_random = 1;
     #10 clk_pseudo_random = 0;
 
+    #10 clk_pseudo_random = 1;
+    #10 clk_pseudo_random = 0;
+
+    #10 clk_pseudo_random = 1;
+    #10 clk_pseudo_random = 0;
+
+    #10 clk_pseudo_random = 1;
+    #10 clk_pseudo_random = 0;
+
+    #10 clk_pseudo_random = 1;
+    #10 clk_pseudo_random = 0;
+
     #10 reset_pseudo_random = 1;
     #10 reset_pseudo_random = 0;
+
 
 
 
@@ -154,20 +168,34 @@ end
 
 
 always @(a_mux or b_mux or f_mux) begin
-    $monitor("a_mux = %b   b_mux = %b   f_mux = %b   out_mux = %b", a_mux, b_mux, f_mux, out_mux);   
+    $display("a_mux = %b   b_mux = %b   f_mux = %b   out_mux = %b", a_mux, b_mux, f_mux, out_mux);   
 end
 
 always @(a_latch or f_latch or reset_latch) begin
-    $monitor("a_latch = %b   f_latch = %b   out_latch = %b   out_latch_n = %b   reset_latch = %b", a_latch, f_latch, out_latch, out_latch_n, reset_latch);   
+    $display("a_latch = %b   f_latch = %b   out_latch = %b   out_latch_n = %b   reset_latch = %b", a_latch, f_latch, out_latch, out_latch_n, reset_latch);   
 end
 
-always @(a_flip_flop or clk_flip_flop or reset_flip_flop) begin
-    $monitor("a_flip_flop = %b   clk_flip_flop = %b   out_flip_flop = %b   reset_flip_flop = %b", a_flip_flop, clk_flip_flop, out_flip_flop, reset_flip_flop);   
+
+always@( clk_flip_flop) begin
+    #5 $display("<   clk>  clk_flip_flop = %b   a_flip_flop = %b   out_flip_flop = %b   reset_flip_flop = %b", clk_flip_flop, a_flip_flop, out_flip_flop, reset_flip_flop);   
 end
 
-always @(clk_pseudo_random or reset_pseudo_random) begin
-    $monitor("clk_pseudo_random = %b   out_pseudo_random = %b   reset_pseudo_random = %b", clk_pseudo_random, out_pseudo_random, reset_pseudo_random);   
+
+
+always@(a_flip_flop) begin
+    #5 $display("<change>  clk_flip_flop = %b   a_flip_flop = %b   out_flip_flop = %b   reset_flip_flop = %b", clk_flip_flop, a_flip_flop, out_flip_flop, reset_flip_flop);   
+end
+
+
+
+
+
+always@(posedge clk_pseudo_random) begin
+    $display("<posedge>  clk_pseudo_random = %b   out_pseudo_random = %b   reset_pseudo_random = %b", clk_pseudo_random, out_pseudo_random, reset_pseudo_random);   
+end
+
+always@(negedge reset_pseudo_random) begin
+    $display("<reset>  clk_pseudo_random = %b   out_pseudo_random = %b   reset_pseudo_random = %b", clk_pseudo_random, out_pseudo_random, reset_pseudo_random);   
 end
 
 endmodule
-*/
