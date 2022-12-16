@@ -1,0 +1,74 @@
+module main;
+
+reg clk_pseudo_random, reset_pseudo_random;
+wire [0:2] out_pseudo_random;
+pseudo_random test_pseudo_random(out_pseudo_random, clk_pseudo_random, reset_pseudo_random);
+
+
+initial
+begin
+    $dumpfile("test_pseudo_random.vcd");
+    $dumpvars(0,main);
+    
+    $display("\ntest pseudo_random\n");
+    
+    clk_pseudo_random = 0;
+    reset_pseudo_random = 0;
+
+    #10 reset_pseudo_random = 1;
+    #10 reset_pseudo_random = 0;
+
+    #10 clk_pseudo_random = 1;
+    #10 clk_pseudo_random = 0;
+
+    #10 clk_pseudo_random = 1;
+    #10 clk_pseudo_random = 0;
+
+    #10 clk_pseudo_random = 1;
+    #10 clk_pseudo_random = 0;
+
+    #10 clk_pseudo_random = 1;
+    #10 clk_pseudo_random = 0;
+
+    #10 clk_pseudo_random = 1;
+    #10 clk_pseudo_random = 0;
+
+    #10 clk_pseudo_random = 1;
+    #10 clk_pseudo_random = 0;
+
+    #10 clk_pseudo_random = 1;
+    #10 clk_pseudo_random = 0;
+
+    #10 clk_pseudo_random = 1;
+    #10 clk_pseudo_random = 0;
+
+    #10 clk_pseudo_random = 1;
+    #10 clk_pseudo_random = 0;
+
+    #10 clk_pseudo_random = 1;
+    #10 clk_pseudo_random = 0;
+
+    #10 clk_pseudo_random = 1;
+    #10 clk_pseudo_random = 0;
+
+    #10 clk_pseudo_random = 1;
+    #10 clk_pseudo_random = 0;
+
+    #10 reset_pseudo_random = 1;
+    #10 reset_pseudo_random = 0;
+
+
+
+
+end
+
+
+always@(posedge clk_pseudo_random) begin
+    $display("<posedge>  clk_pseudo_random = %b   out_pseudo_random = %b   reset_pseudo_random = %b", clk_pseudo_random, out_pseudo_random, reset_pseudo_random);   
+end
+
+always@(negedge reset_pseudo_random) begin
+    $display("<reset>  clk_pseudo_random = %b   out_pseudo_random = %b   reset_pseudo_random = %b", clk_pseudo_random, out_pseudo_random, reset_pseudo_random);   
+end
+
+endmodule
