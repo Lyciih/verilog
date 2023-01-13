@@ -39,7 +39,7 @@ xor         (c1, Q[2], Q[0]);
 endmodule
 
 
-
+/*
 module main;
 
 reg f_mux,a_mux,b_mux;
@@ -199,3 +199,4 @@ always@(negedge reset_pseudo_random) begin
 end
 
 endmodule
+*/
